@@ -34,9 +34,16 @@ export default class HomeScreen extends Component{
         if(responseObject)
         {
           //Obtener información de la respuesta
-         
+         var wordData=responseObject.definitions[0]
+         var definition=wordData.description
+         var lexicalCategory=worldData.wordType
 
           //Modifica los estados
+          this.setState({
+            "word":this.state.text,
+            "definition":definition,
+            "lexicalCategory":lexicalCategory
+          })
 
         }
         else
@@ -64,6 +71,15 @@ export default class HomeScreen extends Component{
         />
         <View style={styles.inputBoxContainer}>
         {/*Crear input para introducir la palabra*/}
+        <TextInput style={styles.inputBox}onChangeText={text =>{
+          this.setState({
+            text:text,
+            isSearchPressed:false,
+            word:"loading",
+            lexicalCategory:"",examples:[],definiton:""
+            
+          })
+        }}/>
 
 
           <TouchableOpacity

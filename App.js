@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text } from 'react-native';
 {/*Importa HomeScreen*/}
-
+import HomeScreen from './screens/HomeScreen';
 
 export default class App extends Component{
   render(){
